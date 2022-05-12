@@ -11,6 +11,7 @@ let todoData=[]
 btnAdd.addEventListener('click', (e)=>{
     //判斷輸入不能為空白&清除空格
     if(txt.value.trim()==""){
+        alert('請輸入內容')
         return;
     }
 
