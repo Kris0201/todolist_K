@@ -9,7 +9,7 @@ const list=document.querySelector('.list')
 const btnAdd=document.querySelector('.btn_add')
 
 let todoData=[]
-console.log(todoData)
+//在dev tool頁面直接搜todoData，確認輸入的input資料有進到陣列中
 
 btnAdd.addEventListener('click', (e)=>{
     //判斷輸入不能為空白
