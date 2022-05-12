@@ -1,4 +1,4 @@
-//先建立初始畫面
+//先建立新增畫面
 
 //抓到輸入在待辦事項input中的值
 const txt=document.querySelector('.txt')
@@ -8,11 +8,21 @@ const list=document.querySelector('.list')
 //點擊 .btn_add 時取得 txt.value
 const btnAdd=document.querySelector('.btn_add')
 
+let todoData=[]
+
 btnAdd.addEventListener('click', (e)=>{
     //判斷輸入不能為空白
-    if(txt.value==""){
+    if(txt.value.trim()==""){
         return;
     }
+
+    let todo={
+        content:txt.value,
+        id:'',
+        isCheck:''
+    }
+
+
     //list.innerHTML=txt.value
     //得到的 txt.value要丟進 ul的li中
     /*要組的字串
