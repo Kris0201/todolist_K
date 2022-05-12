@@ -19,7 +19,7 @@ btnAdd.addEventListener('click', (e)=>{
         id:'',
         isCheck:''
     }
-    todoData.push(todo)
+    todoData.unshift(todo)
     txt.value=""
 
 
