@@ -9,6 +9,7 @@ const list=document.querySelector('.list')
 const btnAdd=document.querySelector('.btn_add')
 
 let todoData=[]
+console.log(todoData)
 
 btnAdd.addEventListener('click', (e)=>{
     //判斷輸入不能為空白
@@ -21,6 +22,9 @@ btnAdd.addEventListener('click', (e)=>{
         id:'',
         isCheck:''
     }
+    todoData.push(todo)
+    txt.value=""
+
 
 
     //list.innerHTML=txt.value
