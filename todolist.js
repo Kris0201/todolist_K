@@ -28,7 +28,6 @@ btnAdd.addEventListener('click', (e)=>{
     txt.value="";
     render(todoData);
 
-
 })
 
 
@@ -37,9 +36,9 @@ function render(todoData){
     let str="";
 
     todoData.forEach((item)=>{
-        str+=`<li>
+        str+=`<li data-id=${i.id}>
         <label class="checkbox" for="">
-        <input type="checkbox" ${item.checked}/>
+        <input type="checkbox" ${item.isCheck}/>
         <span>${item.content}</span>
         </label>
         <a href="#" class="delete"></a>
@@ -47,7 +46,6 @@ function render(todoData){
 
     })
    
-
     list.innerHTML=str
 
 }
