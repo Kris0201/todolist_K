@@ -8,7 +8,7 @@ const btnAdd=document.querySelector('.btn_add')
 let todoData=[]
 //在dev tool頁面直接搜todoData，確認輸入的input資料有進到陣列中
 
-//1. 新增
+// 1. 新增
 btnAdd.addEventListener('click', (e)=>{
     //判斷輸入不能為空白&清除空格
     if(txt.value.trim()==""){
@@ -31,7 +31,7 @@ btnAdd.addEventListener('click', (e)=>{
 })
 
 
-//2. 渲染
+// 2. 渲染
 function render(todoData){
     let str="";
 
@@ -65,4 +65,11 @@ tab.addEventListener('click', function(e){
     })
 
     e.target.classList.add('active')
+})
+
+
+// 4. 刪除 & 切換 checked 狀態功能
+//對 ul (.list) 做大範圍點擊監聽：打勾就 checked，按 x 就刪除
+list.addEventListener('click',(e)=>{
+    
 })
