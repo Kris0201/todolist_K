@@ -36,7 +36,7 @@ function render(todoData){
     let str="";
 
     todoData.forEach((item)=>{
-        str+=`<li data-id=${i.id}>
+        str+=`<li data-id=${item.id}>
         <label class="checkbox" for="">
         <input type="checkbox" ${item.isCheck}/>
         <span>${item.content}</span>
@@ -50,4 +50,19 @@ function render(todoData){
 
 }
 
+
 // 3. tab切換(css樣式)
+//對 ul 做大範圍點擊監聽
+const tab=document.querySelector('#tab')
+tab.addEventListener('click', function(e){
+    //console.log(e.target.getAttribute('data-tab'))
+
+    //點擊時先刪除所有 li 的 class
+    let tabs=document.querySelectorAll('#tab li') //得到類陣列
+
+    tabs.forEach((item)=>{
+        item.classList.remove('active')
+    })
+
+    e.target.classList.add('active')
+})
