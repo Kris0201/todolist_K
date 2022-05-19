@@ -71,5 +71,19 @@ tab.addEventListener('click', function(e){
 // 4. 刪除 & 切換 checked 狀態功能
 //對 ul (.list) 做大範圍點擊監聽：打勾就 checked，按 x 就刪除
 list.addEventListener('click',(e)=>{
-    
+    let id=e.target.closest('li').getAttribute('data-id')
+    //為了點到整個 li，使用 .closest方法取得
+
+    if(e.target.classList.value=="delete"){
+        e.preventDefault();
+
+        todoData=todoData.filter((i)=>{
+            i.id != id
+            //i.id=id者會被刪除；即i.id!=id者會被保留
+
+        })
+    }
+
+    render(todoData)
+   
 })
