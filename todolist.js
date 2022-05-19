@@ -78,7 +78,7 @@ list.addEventListener('click',(e)=>{
         e.preventDefault();
 
         todoData=todoData.filter((i)=>{
-            i.id != id
+            return i.id != id
             //i.id=id者會被刪除；即i.id!=id者會被保留
 
         })
