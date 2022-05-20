@@ -142,3 +142,11 @@ updateList()
 
 
 // 6. 刪除已完成 todo 項目
+const deleteBTN=document.querySelector('#deleteBTN')
+deleteBTN.addEventListener('click', (e)=>{
+    e.preventDefault();
+    todoData=todoData.filter((i)=>{
+        return i.isCheck!='checked'
+    }) //刪掉 checked 的項目
+    
+})
