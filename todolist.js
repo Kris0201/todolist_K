@@ -139,3 +139,6 @@ function updateList(){
 
 //初始
 updateList()
+
+
+// 6. 刪除已完成 todo 項目
