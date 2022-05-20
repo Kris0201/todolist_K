@@ -82,6 +82,17 @@ list.addEventListener('click',(e)=>{
             //i.id=id者會被刪除；即i.id!=id者會被保留
 
         })
+    }else{
+        //點擊 li 內 delete 以外的元素時，切換 checked 狀態功能：使勾選 / 取消勾選 checkbox 可以加上 / 移除 checked 屬性
+        todoData.forEach((i,index)=>{
+            if(i.id==id){
+                if(todoData[index].isCheck=='checked'){
+                    todoData[index].isCheck=''
+                }else{
+                    todoData[index].isCheck='checked'
+                }
+            }
+        })
     }
 
     render(todoData)
