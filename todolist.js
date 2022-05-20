@@ -26,7 +26,7 @@ btnAdd.addEventListener('click', (e)=>{
     }
     todoData.unshift(todo)
     txt.value="";
-    render(todoData);
+    updateList()
 
 })
 
@@ -69,6 +69,7 @@ tab.addEventListener('click', function(e){
     })
 
     e.target.classList.add('active')
+    updateList()
 })
 
 
@@ -99,7 +100,7 @@ list.addEventListener('click',(e)=>{
         })
     }
 
-    render(todoData)
+    updateList()
    
 })
 
@@ -109,15 +110,32 @@ function updateList(){
     let showData=[]
 
     if (toggleStatus=='all'){
+        //所有待辦事項
         showData=todoData;
 
     }else if(toggleStatus=='work'){
+        //待完成項目
         showData=todoData.filter((i)=>{
             return i.isCheck==''
         })
     }else{
+        //已完成項目
         showData=todoData.filter((i)=>{
             return i.isCheck=='checked'
         })
     }
+
+    //寫入 x 個待完成項目邏輯
+    const workNum=document.querySelector('#workNum')
+    let todoLength=todoData.filter((i)=>{
+        return i.isCheck==''
+    })
+
+    //待完成項目數值=陣列個數，用 .length 取值
+    workNum.textContent=todoLength.length
+
+    render(showData);
 }
+
+//初始
+updateList()
