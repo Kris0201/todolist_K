@@ -54,8 +54,12 @@ function render(todoData){
 // 3. tab切換(css樣式)
 //對 ul 做大範圍點擊監聽
 const tab=document.querySelector('#tab')
+
+let toggleStatus='all';
 tab.addEventListener('click', function(e){
-    //console.log(e.target.getAttribute('data-tab'))
+    toggleStatus=e.target.dataset.tab;
+    //console.log('toggleStatus',toggleStatus)
+   
 
     //點擊時先刪除所有 li 的 class
     let tabs=document.querySelectorAll('#tab li') //得到類陣列
@@ -98,3 +102,22 @@ list.addEventListener('click',(e)=>{
     render(todoData)
    
 })
+
+// 5. 更新待辦清單：與 3 做整合
+
+function updateList(){
+    let showData=[]
+
+    if (toggleStatus=='all'){
+        showData=todoData;
+
+    }else if(toggleStatus=='work'){
+        showData=todoData.filter((i)=>{
+            return i.isCheck==''
+        })
+    }else{
+        showData=todoData.filter((i)=>{
+            return i.isCheck=='checked'
+        })
+    }
+}
