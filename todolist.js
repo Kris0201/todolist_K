@@ -9,26 +9,27 @@ let todoData=[]
 //在dev tool頁面直接搜todoData，確認輸入的input資料有進到陣列中
 
 // 1. 新增
-btnAdd.addEventListener('click', (e)=>{
-    //判斷輸入不能為空白&清除空格
-    if(txt.value.trim()==""){
-        alert('請輸入內容')
-        return;
-    }
+btnAdd.addEventListener('click', addTodo)
 
-    let todo={
-        content:txt.value,
-        id:new Date().getTime(),  
-        //時間戳：刪除、切換狀態
+function addTodo(){
+//判斷輸入不能為空白&清除空格
+if(txt.value.trim()==""){
+    alert('請輸入內容')
+    return;
+}
 
-        isCheck:'' 
-        //判別項目是否完成
-    }
-    todoData.unshift(todo)
-    txt.value="";
-    updateList()
+let todo={
+    content:txt.value,
+    id:new Date().getTime(),  
+    //時間戳：刪除、切換狀態
 
-})
+    isCheck:'' 
+    //判別項目是否完成
+}
+todoData.unshift(todo)
+txt.value="";
+updateList()
+}
 
 
 // 2. 渲染
@@ -148,5 +149,17 @@ deleteBTN.addEventListener('click', (e)=>{
     todoData=todoData.filter((i)=>{
         return i.isCheck!='checked'
     }) //刪掉 checked 的項目
+    updateList()
+})
+
+
+// 7. 優化：enter
+// keypress事件一般而言掛在input元素上
+
+txt.addEventListener('keypress', (e)=>{
+    if(e.key=="Enter"){
+        addTodo();
+        return;
+    }
     
 })
